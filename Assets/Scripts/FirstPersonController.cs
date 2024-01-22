@@ -43,8 +43,7 @@ public class FirstPersonController : MonoBehaviour {
 		}
 		else {
 			grounded = false;
-		}
-		
+		}	
 	}
 	
 	void FixedUpdate() {
