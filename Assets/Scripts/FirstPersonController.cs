@@ -9,15 +9,12 @@ public class FirstPersonController : MonoBehaviour {
 	public LayerMask groundedMask;
 	
 	// System vars
-	bool grounded;
 	Vector3 moveAmount;
 	Vector3 smoothMoveVelocity;
-	float verticalLookRotation;
 	Transform cameraTransform;
 	Rigidbody rigidbody;
-	
-	
-	void Awake() {
+
+    void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		cameraTransform = Camera.main.transform;
@@ -33,18 +30,18 @@ public class FirstPersonController : MonoBehaviour {
 		Vector3 moveDir = new Vector3(inputX,0, inputY).normalized;
 		Vector3 targetMoveAmount = moveDir * walkSpeed;
 		moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount,ref smoothMoveVelocity,.15f);
-		
-		// Grounded check
-		Ray ray = new Ray(transform.position, -transform.up);
-		RaycastHit hit;
-		
-		if (Physics.Raycast(ray, out hit, 1 + .1f, groundedMask)) {
-			grounded = true;
-		}
-		else {
-			grounded = false;
-		}	
-	}
+
+        Vector3 inputDir = new Vector3(inputX, 0, inputY).normalized;
+
+		//if(moveDir != Vector3.zero)
+		//{
+		//	Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+
+		//	transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 720f * Time.deltaTime);
+
+  //      }
+
+    }
 	
 	void FixedUpdate() {
 		// Apply movement to rigidbody
