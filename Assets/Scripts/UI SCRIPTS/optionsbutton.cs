@@ -10,7 +10,7 @@ public class optionsbutton : MonoBehaviour
 
     public void ChangeSceneWithFade()
     {
-        // Fade out
+
         DOTween.ToAlpha(() => Camera.main.backgroundColor, color => Camera.main.backgroundColor = color, 0f, fadeDuration)
             .OnComplete(() =>
             {
