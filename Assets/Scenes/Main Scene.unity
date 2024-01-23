@@ -2471,6 +2471,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091250243}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1109840077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109840078}
+  m_Layer: 0
+  m_Name: '------Enemy------- '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109840078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109840077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.011362255, y: 0.8935602, z: -8.971537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157498817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,22 +4302,23 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 520042148}
-  - {fileID: 1396467826}
-  - {fileID: 1263463152}
   - {fileID: 889252772}
   - {fileID: 10072834}
   - {fileID: 241352969}
   - {fileID: 227440587}
   - {fileID: 290156874}
   - {fileID: 1730891065}
-  - {fileID: 2012148854}
-  - {fileID: 1963745477}
-  - {fileID: 1826840238}
   - {fileID: 197354181}
   - {fileID: 1955347293}
-  - {fileID: 1060612847}
-  - {fileID: 720038464}
+  - {fileID: 2012148854}
+  - {fileID: 520042148}
   - {fileID: 1718598559291282089}
-  - {fileID: 1929243038}
+  - {fileID: 1109840078}
   - {fileID: 1608728733}
+  - {fileID: 1929243038}
+  - {fileID: 1963745477}
+  - {fileID: 720038464}
+  - {fileID: 1060612847}
+  - {fileID: 1826840238}
+  - {fileID: 1396467826}
+  - {fileID: 1263463152}
