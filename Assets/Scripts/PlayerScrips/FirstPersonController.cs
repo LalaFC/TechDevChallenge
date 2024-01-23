@@ -10,13 +10,14 @@ public class FirstPersonController : MonoBehaviour
     // public vars
     public float mouseSensitivityX = 5;
     public float mouseSensitivityY = 1;
-    float verticalLookRotation;
-    Transform cameraTransform;
+
 
     GravityBody gravityBody;
 
     // System vars
     Rigidbody rigidbody;
+    float verticalLookRotation;
+    Transform cameraTransform;
 
     //new input system
     PlayerInputEditor playerInputEditor;
@@ -28,6 +29,9 @@ public class FirstPersonController : MonoBehaviour
     Vector3 moveAmount;
     Vector3 smoothVelocity;
 
+    //animation var
+    playerAnimationScripts playerAnimation;
+
     public float moveSpeed = 5f;
 
     private void OnEnable()
@@ -37,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
             playerInputEditor = new PlayerInputEditor();
 
             playerInputEditor.playerMovements.walk.performed += i => walkAction = i.ReadValue<Vector2>();
-            playerInputEditor.playerMovements.walk.canceled += i => walkAction = Vector2.zero;
+            playerInputEditor.playerMovements.walk.canceled += i => walkAction = Vector3.zero;
         }
         playerInputEditor.Enable();
     }
@@ -47,7 +51,7 @@ public class FirstPersonController : MonoBehaviour
         if (playerInputEditor != null)
         {
             playerInputEditor.playerMovements.walk.performed -= i => walkAction = i.ReadValue<Vector2>();
-            playerInputEditor.playerMovements.walk.canceled -= i => walkAction = Vector2.zero;
+            playerInputEditor.playerMovements.walk.canceled -= i => walkAction = Vector3.zero;
         }
         playerInputEditor.Disable();
     }
@@ -60,6 +64,7 @@ public class FirstPersonController : MonoBehaviour
         cameraTransform = Camera.main.transform;
 
         gravityBody = GetComponent<GravityBody>();
+        playerAnimation = GetComponent<playerAnimationScripts>();
     }
 
     void Update()
@@ -80,13 +85,22 @@ public class FirstPersonController : MonoBehaviour
         Vector3 moveDir = new Vector3(moveDirection.x, 0, moveDirection.y).normalized;
 
         Vector3 targetMoveAmount = moveDir * moveSpeed;
-        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothVelocity, .15f);
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothVelocity, 0.1f);
 
-
-
-        Vector3 localMove = transform.TransformDirection(moveAmount) * Time.fixedDeltaTime;
+        Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
         rigidbody.MovePosition(rigidbody.position + localMove);
         ConstrainToPlanetSurface();
+
+        //handle animation
+        if(moveAmount.magnitude > 0.01f)
+        {
+            playerAnimation.startWalkingAnimation();
+        }
+        else
+        {
+            playerAnimation.stopWalkingAnimation();
+        }
+
     }
 
     void ConstrainToPlanetSurface()
