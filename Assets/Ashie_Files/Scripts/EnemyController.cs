@@ -28,18 +28,34 @@ public class EnemyController : MonoBehaviour
     public void MoveToMaterial()
     {
         MaterialExists = (GameObject.FindWithTag("Material") == null) ? false : true;
-        var step = walkSpeed * Time.deltaTime;
+        float step = walkSpeed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position, enemyRocket.position);
 
         withinBase = (distance <= enemyRocketController.Radius) ? true : false;
 
         if (!materialCollection.EnemyMaterialAcquired && materialExists)
         {
+            // Calculate direction to the target material
+            Vector3 directionToMaterial = (ClosestMaterial().position - transform.position).normalized;
+
+            // Move towards the material
             transform.position = Vector3.MoveTowards(transform.position, ClosestMaterial().position, step);
+
+            // Rotate towards the material
+            Quaternion targetRotation = Quaternion.LookRotation(directionToMaterial, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * walkSpeed);
         }
         else if (!withinBase && (materialCollection.EnemyMaterialAcquired || !materialExists))
         {
+            // Calculate direction to the rocket
+            Vector3 directionToRocket = (enemyRocket.position - transform.position).normalized;
+
+            // Move towards the rocket
             transform.position = Vector3.MoveTowards(transform.position, enemyRocket.position, step);
+
+            // Rotate towards the rocket
+            Quaternion targetRotation = Quaternion.LookRotation(directionToRocket, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * walkSpeed);
         }
     }
 
