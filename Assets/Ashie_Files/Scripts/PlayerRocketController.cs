@@ -9,6 +9,8 @@ public class PlayerRocketController : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] MaterialCollection materialCollection;
 
+    public GameObject playerMaterialBag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class PlayerRocketController : MonoBehaviour
     {
         PlayerChecker();
         playerWin();
+        showMaterialBag();
     }
 
     private void OnDrawGizmos()
@@ -41,10 +44,24 @@ public class PlayerRocketController : MonoBehaviour
             }
         }
     }
+
+    public void showMaterialBag()
+    {
+        if(materialCollection.PlayerMaterialAcquired)
+        {
+            playerMaterialBag.SetActive(true);
+        }
+        else
+        {
+            playerMaterialBag.SetActive(false);
+        }
+    }
+
     public void playerWin()
     {
         if(materialCollection.PlayerMaterialCounter == 10)
         {
+            //lagay nyo dito ung transition sa win scene
             Debug.Log("playerWin");
         }
     }

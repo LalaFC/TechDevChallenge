@@ -44,7 +44,7 @@ public class EnemyRocketController : MonoBehaviour
 
     public void enemyWin()
     {
-        if (materialCollection.EnemyMaterialCounter == 5)
+        if (materialCollection.EnemyMaterialCounter == 10)
         {
             Debug.Log("enemyWin");
         }
