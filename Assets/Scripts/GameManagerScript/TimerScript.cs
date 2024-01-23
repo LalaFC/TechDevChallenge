@@ -15,6 +15,7 @@ public class TimerScript : MonoBehaviour
     private void Start()
     {
         initialTime = timer;
+        isGameStart = true;
     }
 
     private void Update()
