@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Planet
   - Material
+  - PlayerRocket
+  - EnemyRocket
+  - Enemy
+  - MaterialCollection
   layers:
   - Default
   - TransparentFX
