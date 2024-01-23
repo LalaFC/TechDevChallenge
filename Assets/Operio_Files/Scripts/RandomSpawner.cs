@@ -11,8 +11,11 @@ public class RandomSpawner : MonoBehaviour
     [SerializeField] bool canSpawn = true, limit = false;
     [SerializeField] float TimeCount;
     [SerializeField] int SpawnedMatCount;
-    [Range(0, 7)] public float spawnCD;
+    [Range(2, 7)] public float spawnCD;
 
+    private void Awake()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
