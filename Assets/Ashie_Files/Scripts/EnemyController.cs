@@ -38,11 +38,14 @@ public class EnemyController : MonoBehaviour
             // Calculate direction to the target material
             Vector3 directionToMaterial = (ClosestMaterial().position - transform.position).normalized;
 
+            // Project the movement onto the surface of the sphere
+            directionToMaterial = Vector3.ProjectOnPlane(directionToMaterial, transform.position.normalized).normalized;
+
             // Move towards the material
             transform.position = Vector3.MoveTowards(transform.position, ClosestMaterial().position, step);
 
             // Rotate towards the material
-            Quaternion targetRotation = Quaternion.LookRotation(directionToMaterial, Vector3.up);
+            Quaternion targetRotation = Quaternion.LookRotation(directionToMaterial, transform.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * walkSpeed);
         }
         else if (!withinBase && (materialCollection.EnemyMaterialAcquired || !materialExists))
@@ -50,14 +53,18 @@ public class EnemyController : MonoBehaviour
             // Calculate direction to the rocket
             Vector3 directionToRocket = (enemyRocket.position - transform.position).normalized;
 
+            // Project the movement onto the surface of the sphere
+            directionToRocket = Vector3.ProjectOnPlane(directionToRocket, transform.position.normalized).normalized;
+
             // Move towards the rocket
             transform.position = Vector3.MoveTowards(transform.position, enemyRocket.position, step);
 
             // Rotate towards the rocket
-            Quaternion targetRotation = Quaternion.LookRotation(directionToRocket, Vector3.up);
+            Quaternion targetRotation = Quaternion.LookRotation(directionToRocket, transform.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * walkSpeed);
         }
     }
+
 
     private Transform ClosestMaterial()
     {
