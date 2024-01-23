@@ -20,6 +20,7 @@ public class EnemyRocketController : MonoBehaviour
     void Update()
     {
         EnemyChecker();
+        enemyWin();
     }
 
     private void OnDrawGizmos()
@@ -38,6 +39,14 @@ public class EnemyRocketController : MonoBehaviour
                 materialCollection.EnemyMaterialAcquired = false;
                 materialCollection.EnemyMaterialCounter++;
             }
+        }
+    }
+
+    public void enemyWin()
+    {
+        if (materialCollection.EnemyMaterialCounter == 5)
+        {
+            Debug.Log("enemyWin");
         }
     }
 }

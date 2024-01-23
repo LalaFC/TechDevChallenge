@@ -20,6 +20,7 @@ public class PlayerRocketController : MonoBehaviour
     void Update()
     {
         PlayerChecker();
+        playerWin();
     }
 
     private void OnDrawGizmos()
@@ -38,6 +39,13 @@ public class PlayerRocketController : MonoBehaviour
                 materialCollection.PlayerMaterialAcquired = false;
                 materialCollection.PlayerMaterialCounter++;
             }
+        }
+    }
+    public void playerWin()
+    {
+        if(materialCollection.PlayerMaterialCounter == 10)
+        {
+            Debug.Log("playerWin");
         }
     }
 }
