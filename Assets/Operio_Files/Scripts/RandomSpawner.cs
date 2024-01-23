@@ -64,7 +64,7 @@ public class RandomSpawner : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player" || collision.collider.tag == "Enemy" || collision.collider.tag == "Material" || collision.collider.tag == "Spaceship")
+        if (collision.collider.tag == "Player" || collision.collider.tag == "Enemy" || collision.collider.tag == "Material" || collision.collider.tag == "PlayerRocket" || collision.collider.tag == "EnemyRocket")
         spotAvailable = false;
     }
     private void OnCollisionExit(Collision collision)

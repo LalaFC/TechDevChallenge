@@ -5665,7 +5665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f167d4988e24d449d15147ce556df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2.5
+  walkSpeed: 2
   enemyRocket: {fileID: 411603610}
   enemyRocketController: {fileID: 411603604}
   materialCollection: {fileID: 1955347294}
