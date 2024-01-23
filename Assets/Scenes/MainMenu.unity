@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 193351963}
   - component: {fileID: 193351962}
   - component: {fileID: 193351961}
+  - component: {fileID: 193351964}
   m_Layer: 5
   m_Name: options
   m_TagString: Untagged
@@ -798,7 +799,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 193351962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 193351964}
+        m_TargetAssemblyTypeName: optionsbutton, Assembly-CSharp
+        m_MethodName: ChangeSceneWithFade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &193351962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +850,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193351959}
   m_CullTransparentMesh: 1
+--- !u!114 &193351964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193351959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd926f462ea62f142bb716b1a005c805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: 
+  fadeDuration: 1
+  sceneID: 1
 --- !u!43 &195615512
 Mesh:
   m_ObjectHideFlags: 0
@@ -7980,7 +8008,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
