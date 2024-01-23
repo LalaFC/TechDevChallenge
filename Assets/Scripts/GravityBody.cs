@@ -4,7 +4,11 @@ using System.Collections;
 [RequireComponent (typeof (Rigidbody))]
 public class GravityBody : MonoBehaviour {
 	
+<<<<<<< Updated upstream:Assets/Scripts/GravityBody.cs
 	GravityAttractor planet;
+=======
+	public GravityAttractor planet;
+>>>>>>> Stashed changes:Assets/Scripts/PlayerScrips/GravityBody.cs
 	new Rigidbody rigidbody;
 	
 	void Awake () {

@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Planet
+<<<<<<< Updated upstream
+=======
+  - Material
+  - MaterialManager
+  - PlayerRocket
+  - EnemyRocket
+  - Enemy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
