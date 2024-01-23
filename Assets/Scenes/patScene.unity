@@ -451,7 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414983946}
   m_Layer: 0
-  m_Name: -----------Planet----------
+  m_Name: ------Planet-------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,7 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 456814078}
   m_Layer: 0
-  m_Name: -----------Camera---------
+  m_Name: ------Camera------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,7 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525060559}
   m_Layer: 0
-  m_Name: '-----------Player---------- '
+  m_Name: '------Player------- '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_AnchoredPosition: {x: -0.000030518, y: 0}
   m_SizeDelta: {x: -0.000030518, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247474730
@@ -896,7 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441996862}
   m_Layer: 0
-  m_Name: '------------UI-------------  '
+  m_Name: '------UI-------  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1599,7 +1599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2130533960}
   m_Layer: 0
-  m_Name: '-------------Misc---------  '
+  m_Name: '------Misc-------  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
