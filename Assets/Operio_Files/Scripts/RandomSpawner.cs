@@ -12,6 +12,7 @@ public class RandomSpawner : MonoBehaviour
     [SerializeField] float TimeCount;
     [SerializeField] int SpawnedMatCount;
     [Range(2, 7)] public float spawnCD;
+    private bool spotAvailable = false;
 
     private void Awake()
     {
@@ -25,13 +26,13 @@ public class RandomSpawner : MonoBehaviour
         if (TimeCount < 5)
         { 
             ItemCounter(3);
-            if (canSpawn == true && limit == false)
+            if (canSpawn == true && limit == false && spotAvailable)
                 StartCoroutine(Spawn(0));
         }
         else 
         {
             ItemCounter(6);
-            if (canSpawn == true && limit == false)
+            if (canSpawn == true && limit == false && spotAvailable)
                 StartCoroutine(Spawn(spawnCD));
         }
         SpawnedMatCount = GameObject.FindGameObjectsWithTag("Material").Length;
@@ -58,6 +59,23 @@ public class RandomSpawner : MonoBehaviour
     {
             RandomVector = UnityEngine.Random.onUnitSphere * 10;
             transform.position = RandomVector;
+            LookRotation();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Player" || collision.collider.tag == "Enemy" || collision.collider.tag == "Material" || collision.collider.tag == "Spaceship")
+        spotAvailable = false;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        spotAvailable = true;
+    }
+    void LookRotation()
+    {
+        float rotspeed = 20;
+        Vector3 relativePos = GameObject.FindGameObjectWithTag("Planet").transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotspeed * Time.deltaTime);
+    }
 }
