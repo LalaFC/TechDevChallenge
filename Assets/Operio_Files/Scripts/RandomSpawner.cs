@@ -1,33 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
     public GameObject Material;
     [SerializeField] Vector3 RandomVector;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] bool canSpawn = true, limit = false;
+    [SerializeField] float TimeCount;
+    [SerializeField] int SpawnedMatCount;
+    [Range(0, 7)] public float spawnCD;
 
     // Update is called once per frame
     void Update()
     {
-        
-        Spawn();
-
         Randomize();
+        TimeCount = Time.time;
+
+        if (TimeCount < 5)
+        { 
+            ItemCounter(3);
+            if (canSpawn == true && limit == false)
+                StartCoroutine(Spawn(0));
+        }
+        else 
+        {
+            ItemCounter(6);
+            if (canSpawn == true && limit == false)
+                StartCoroutine(Spawn(spawnCD));
+        }
+        SpawnedMatCount = GameObject.FindGameObjectsWithTag("Material").Length;
+
     }
-    void Spawn()
+    IEnumerator Spawn(float CD)
     {
-        if (Input.GetKey(KeyCode.A))
-            Instantiate(Material, RandomVector, Quaternion.identity);
+        canSpawn = false;
+        Instantiate(Material, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(CD);
+        canSpawn = true;
     }
+    void ItemCounter(int maxNum)
+    {
+        if (GameObject.FindGameObjectsWithTag("Material").Length >= maxNum)
+        {
+            limit = true;
+        }
+        else 
+        limit = false;
+    }
+
     void Randomize()
     {
-        if (Input.GetKey(KeyCode.B))
-            RandomVector = Random.onUnitSphere * 10;
+            RandomVector = UnityEngine.Random.onUnitSphere * 10;
+            transform.position = RandomVector;
     }
+
 }
