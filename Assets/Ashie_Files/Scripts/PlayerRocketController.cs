@@ -61,6 +61,7 @@ public class PlayerRocketController : MonoBehaviour
     {
         if(materialCollection.PlayerMaterialCounter == 10)
         {
+            //lagay nyo dito ung transition sa win scene
             Debug.Log("playerWin");
         }
     }
