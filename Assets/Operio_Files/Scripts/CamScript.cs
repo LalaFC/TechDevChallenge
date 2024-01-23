@@ -7,6 +7,7 @@ public class CamScript : MonoBehaviour
     Vector3 planet, spaceship;
     public float SmoothSpeed;
     public Vector3 Offset;
+    private bool canRotate = false;
 
     private void Start()
     {
@@ -17,5 +18,8 @@ public class CamScript : MonoBehaviour
         Vector3 DesiredPosition = planet - Offset;
         Vector3 smoothposition = Vector3.Lerp(transform.position, DesiredPosition, SmoothSpeed * Time.deltaTime);
         transform.position = smoothposition;
+
+        transform.RotateAround(planet, Vector3.down, 15*Time.deltaTime);
     }
+
 }
