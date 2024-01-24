@@ -46,6 +46,7 @@ public class EnemyRocketController : MonoBehaviour
     {
         if (materialCollection.EnemyMaterialCounter == 10)
         {
+            //lagay nyo dito ung transition sa losing scene
             Debug.Log("enemyWin");
         }
     }
