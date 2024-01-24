@@ -22,4 +22,16 @@ public class RocketLanding : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotspeed * Time.deltaTime);
     }
+<<<<<<< Updated upstream
+=======
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Planet")
+        {
+            SceneManager.LoadScene(1);
+        }
+
+    }
+>>>>>>> Stashed changes
 }
