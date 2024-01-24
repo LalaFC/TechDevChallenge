@@ -9,7 +9,10 @@ public class PlayerRocketController : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] MaterialCollection materialCollection;
 
+    //public var
     public GameObject playerMaterialBag;
+    public AudioSource audioSRC;
+    public AudioClip pickUpSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +25,9 @@ public class PlayerRocketController : MonoBehaviour
     void Update()
     {
         PlayerChecker();
-        playerWin();
         showMaterialBag();
+
+        audioSFX();
     }
 
     private void OnDrawGizmos()
@@ -39,6 +43,7 @@ public class PlayerRocketController : MonoBehaviour
         {
             if (materialCollection.PlayerMaterialAcquired == true)
             {
+
                 materialCollection.PlayerMaterialAcquired = false;
                 materialCollection.PlayerMaterialCounter++;
             }
@@ -56,13 +61,12 @@ public class PlayerRocketController : MonoBehaviour
             playerMaterialBag.SetActive(false);
         }
     }
-
-    public void playerWin()
+    public void audioSFX()
     {
-        if(materialCollection.PlayerMaterialCounter == 10)
+        if(materialCollection.PlayerMaterialAcquired == false)
         {
-            //lagay nyo dito ung transition sa win scene
-            Debug.Log("playerWin");
+            audioSRC.clip = pickUpSFX;
+            audioSRC.Play();
         }
     }
 }
