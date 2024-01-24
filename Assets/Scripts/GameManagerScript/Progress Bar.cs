@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -20,6 +21,15 @@ public class ProgressBar : MonoBehaviour
         enemyScore = gameManager.instance.ScoreCounter.EnemyMaterialCounter;
         changePlayerScore();
         changeEnemyScore();
+
+        if (playerScore >= 5)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+        else if (enemyScore >= 5)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
     }
     private void changePlayerScore()
     {
