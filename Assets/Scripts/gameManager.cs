@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour
@@ -7,24 +8,39 @@ public class gameManager : MonoBehaviour
     public static gameManager instance { get; private set; }
 
     [Header("Game Objects")]
-    public GameObject planet;
-    public GameObject player;
-    public GameObject material;
-    public GameObject spaceship;
+    public GameObject Planet;
+    public GameObject Player;
+    public GameObject Spaceship;
+    public GameObject Enemy;
+    public GameObject EnemyBase;
+    public GameObject Material;
+    public GameObject Spawner;
+    public GameObject MaterialManager;
+    public GameObject Camera;
+
+    [Header("Progress Bars")]
+    public GameObject PlayerBar;
+    public GameObject EnemyBar;
+    public GameObject PlayerScore;
+    public GameObject EnemyScore;
+
     [Header("Scripts")]
     public FirstPersonController PlayerMvmt;
     public RandomSpawner MatSpawner;
+    public MaterialCollection ScoreCounter;
 
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("TextBox")]
+    public TextMeshProUGUI playerScoreTxt;
+    public TextMeshProUGUI enemyScoreTxt;
+
+    private void Awake()
     {
-        
-    }
+        if (instance != null && instance != this) { Destroy(this); }
+        else { instance = this; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ScoreCounter = MaterialManager.GetComponent<MaterialCollection>();
+        playerScoreTxt = PlayerScore.GetComponent<TextMeshProUGUI>();
+        enemyScoreTxt = EnemyScore.GetComponent<TextMeshProUGUI>();
     }
 }
