@@ -8024,6 +8024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a547ffde07915b42a0ecbdab5cc6f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 0}
 --- !u!114 &1127617294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12271,6 +12272,7 @@ GameObject:
   - component: {fileID: 2128663710}
   - component: {fileID: 2128663709}
   - component: {fileID: 2128663708}
+  - component: {fileID: 2128663711}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -12397,6 +12399,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128663711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128663707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8776242140b7f4d8dab4679bb63f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: 97e02c7ea61e7574098c1a173d618559, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
