@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RocketLanding : MonoBehaviour
 {
@@ -22,9 +23,6 @@ public class RocketLanding : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotspeed * Time.deltaTime);
     }
-<<<<<<< Updated upstream
-=======
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Planet")
@@ -33,5 +31,4 @@ public class RocketLanding : MonoBehaviour
         }
 
     }
->>>>>>> Stashed changes
 }
