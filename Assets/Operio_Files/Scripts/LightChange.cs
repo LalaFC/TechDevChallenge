@@ -24,7 +24,6 @@ public class LightChange : MonoBehaviour
             AlarmLight();
         }
     }
-    private Color value;
     public void AlarmLight()
     {
         DG.Tweening.Sequence seq = DOTween.Sequence();
@@ -41,7 +40,7 @@ public class LightChange : MonoBehaviour
             Light3.GetComponent<Light>().color = value;
         }));
 
-        seq.AppendInterval(0.2f);
+        seq.AppendInterval(0.1f);
 
         seq.Append(DOVirtual.Color(Color.red,color1, 1, value =>
         {
@@ -56,7 +55,7 @@ public class LightChange : MonoBehaviour
             Light3.GetComponent<Light>().color = value;
         }));
 
-        seq.AppendInterval(0.15f);
+        seq.AppendInterval(0.1f);
 
         seq.Append(DOVirtual.Color(color1, Color.red, 1, value =>
         {
@@ -71,7 +70,7 @@ public class LightChange : MonoBehaviour
             Light3.GetComponent<Light>().color = value;
         }));
 
-        seq.AppendInterval(0.15f);
+        seq.AppendInterval(0.1f);
 
         seq.Append(DOVirtual.Color(Color.red, color1, 1, value =>
         {
@@ -115,6 +114,11 @@ public class LightChange : MonoBehaviour
         {
             Light3.GetComponent<Light>().color = value;
         }));
+        seq.OnComplete(SwitchScene);
 
+    }
+    void SwitchScene()
+    {
+        this.GetComponent<playbutton>().MoveToScene(5);
     }
 }

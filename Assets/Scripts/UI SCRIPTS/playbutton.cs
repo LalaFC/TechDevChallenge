@@ -6,9 +6,15 @@ using DG.Tweening;
 
 public class playbutton : MonoBehaviour
 {
+    public GameObject Canvas;
+
     public void MoveToScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
+    }
+    public void HideButtons()
+    {
+        Canvas.SetActive(false);
     }
 
 }
