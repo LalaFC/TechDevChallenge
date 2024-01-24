@@ -5582,7 +5582,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9a4df203d9a533f43acdb0c114dfd6fe, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -5609,10 +5609,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2560862
-  m_Height: 4.538483
+  m_Radius: 0.9183707
+  m_Height: 4.4703298
   m_Direction: 1
-  m_Center: {x: 0, y: 2.4381826, z: 0}
+  m_Center: {x: 0, y: 2.4722595, z: 0}
 --- !u!114 &5866666020862124354
 MonoBehaviour:
   m_ObjectHideFlags: 0
