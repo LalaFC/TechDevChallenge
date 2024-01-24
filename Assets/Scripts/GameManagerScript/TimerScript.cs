@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
@@ -10,12 +11,9 @@ public class TimerScript : MonoBehaviour
 
     private float initialTime;
 
-    public bool isGameStart = false;
-
     private void Start()
     {
         initialTime = timer;
-        isGameStart = true;
     }
 
     private void Update()
@@ -32,7 +30,7 @@ public class TimerScript : MonoBehaviour
 
     void timeSet()
     {
-       if(timer > 0 && isGameStart)
+       if(timer > 0)
         {
             timer -= Time.deltaTime;
             displayTime.text = FormatTime(timer);
@@ -40,7 +38,7 @@ public class TimerScript : MonoBehaviour
             if(timer <= 0)
             {
                 Debug.Log("Game Over");
-                isGameStart = false;
+                SceneManager.LoadScene("LoseScene");
             }
         }
     }

@@ -15,6 +15,7 @@ public class LightChange : MonoBehaviour
         color1 = Light1.GetComponent<Light>().color;
         color2 = Light2.GetComponent<Light>().color;
         color3 = Light3.GetComponent<Light>().color;
+        AlarmLight();
     }
     void Update()
     {
