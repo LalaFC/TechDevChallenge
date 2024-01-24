@@ -1277,7 +1277,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 92e0e452157521946ab5bd62c0c90d2a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.253
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3054,6 +3054,12 @@ SkinnedMeshRenderer:
 --- !u!1 &1248552464 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 810924370999995697, guid: be7dabd9d0142be49be9ec588646f9f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 9122173321253817934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1248552469 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2469224174329264847, guid: be7dabd9d0142be49be9ec588646f9f0,
     type: 3}
   m_PrefabInstance: {fileID: 9122173321253817934}
   m_PrefabAsset: {fileID: 0}
@@ -6670,7 +6676,7 @@ PrefabInstance:
     - target: {fileID: 4381735614681738656, guid: be7dabd9d0142be49be9ec588646f9f0,
         type: 3}
       propertyPath: m_UseGravity
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4381735614681738656, guid: be7dabd9d0142be49be9ec588646f9f0,
         type: 3}
@@ -6687,6 +6693,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 520042148}
+    - target: {fileID: 5132549716040526575, guid: be7dabd9d0142be49be9ec588646f9f0,
+        type: 3}
+      propertyPath: audioSRC
+      value: 
+      objectReference: {fileID: 1248552469}
+    - target: {fileID: 5132549716040526575, guid: be7dabd9d0142be49be9ec588646f9f0,
+        type: 3}
+      propertyPath: pickUpSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 31acffcc0d64ee544b5117f2b6afcfa3, type: 3}
     - target: {fileID: 5132549716040526575, guid: be7dabd9d0142be49be9ec588646f9f0,
         type: 3}
       propertyPath: playerMaterialBag
