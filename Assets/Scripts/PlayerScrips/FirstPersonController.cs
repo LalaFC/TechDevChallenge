@@ -58,8 +58,8 @@ public class FirstPersonController : MonoBehaviour
 
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = true;
         rigidbody = GetComponent<Rigidbody>();
         cameraTransform = Camera.main.transform;
 
